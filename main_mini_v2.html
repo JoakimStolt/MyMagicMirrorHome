@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> 
+<head>
+   <meta http-equiv="refresh" content="5" />
+	 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	 <meta http-equiv="Pragma" content="no-cache" />
+	 <meta http-equiv="Expires" content="0" />
+   <title>Magic Mirror</title>
+	 <style> 
+	body {
+      background-color: transparent;
+      transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform-style: preserve-3d;
+     }
+    
+	h1{
+      margin: 5px 0px 0px 0px;
+	  font-size: 50px;  
+	  }
+	  
+    h2{
+      margin: 5px 0px 5px 0px;
+  	  font-size: 30px;  
+	  }
+	  
+	h3{
+      margin: 5px 0px 0px 0px;
+	  }
+	  
+    p{
+      margin: 5px 0px 0px 0px;
+	  }
+
+	th,td,tr{ 
+	  vertical-align: top;
+      text-align: left; 
+      } 
+	
+	.topmarg {
+		padding-top: 25px;
+	}
+      	  
+    .time {
+      position: relative;
+      margin: 10px 0px 0px 0px;
+      left: 2%;
+      width: 100%;
+      height: 7%;
+      top: 5%;
+    }
+	
+    .energy {
+      position: absolute;
+      margin: 0px 0px 0px 0px;
+      left: 50;
+      width: 40%;
+      height: 7%;
+      top: 250px;
+    }
+
+    .energy2 {
+      position: absolute;
+      margin: 0px 0px 0px 0px;
+      left: 50;
+      width: 40%;
+      height: 7%;
+      top: 1090px;
+    }
+	
+	.energy3 {
+      position: absolute;
+      margin: 0px 0px 0px 0px;
+      left: 0;
+      width: 10%;
+      height: 7%;
+      top: 200px;
+    }	
+	
+    .solar {
+      position: absolute;
+      margin: 0px 0px 0px 0px;
+      left: 50;
+      width: 40%;
+      height: 7%;
+      top: 620px;
+    }
+
+	.mower {
+      position: absolute;
+      margin: 0px 0px 0px 0px;
+      left: 50px;
+      width: 40%;
+      height: 10%;
+      top: 930px;
+	  color: green;
+    }
+	
+	.mower2 {
+      position: absolute;
+      margin: 0px 0px 0px 0px;
+      left: 50px;
+      width: 40%;
+      height: 10%;
+      top: 970px;
+	  color: green;
+    }
+
+	.chargeamp {
+      position: absolute;
+      margin: 0px 0px 0px 0px;
+      left: 50px;
+      width: 40%;
+      height: 10%;
+      top: 1010px;
+	    color: white;
+    }
+	
+	.temp {
+      position: absolute;
+      overflow: hidden;
+      margin: 0px 0px 0px 0px;
+      left: 2%;
+      width: 95%;
+      height: 6%;
+      top: 60px;
+    }
+
+	.pool {
+      position: absolute;
+      overflow: hidden;
+      left: 50%;
+      width: 50%;
+      height: 20%;
+      top: 650px;
+    }
+
+	.heatpump {
+      position: absolute;
+      overflow: hidden;
+      left: 50%;
+      width: 50%;
+      height: 40%;
+      top: 300px;
+    }
+	
+	.printer {
+      position: absolute;
+      overflow: hidden;
+      left: 50%;
+      width: 49%;
+      height: 40%;
+      top: 900px;
+	  border:3px solid red;
+	  
+    }
+	
+	.alarms {
+      position: absolute;
+      overflow: hidden;
+      left: 0%;
+      width: 50%;
+      height: 30%;
+      top: 1070px;
+    }
+	
+		.summer {
+      position: absolute;
+      overflow: hidden;
+      left: 50%;
+      width: 50%;
+      height: 40%;
+      top: 1090px;
+    }
+	
+		.news {
+      position: absolute;
+      overflow: hidden;
+      left: 55%;
+      width: 45%;
+      height: 30%;
+      top: 1510px;
+    }
+		
+		.weather {
+      position: relative;
+      overflow: hidden;
+      left: 5%;
+      width: 50%;
+      height: 30%;
+      top: 1450px;
+    }
+	
+	#circle{
+		border: 10px solid grey;
+		border-radius: 50%;
+		width: 60px;
+		height: 60px;
+	}
+	#circle_green{
+		border: 10px solid green;
+		border-radius: 50%;
+		width: 60px;
+		height: 60px;
+	}
+	#circle_yellow{
+		border: 10px solid yellow;
+		border-radius: 50%;
+		width: 60px;
+		height: 60px;
+	}
+	#circle_red{
+		border: 10px solid red;
+		border-radius: 50%;
+		width: 60px;
+		height: 60px;
+	}
+	
+	#circle2_green{
+		border: 15px solid green; 
+		border-radius: 50%;
+		width: 150px;
+		height: 150px;
+	}
+	#circle2_yellow{
+		border: 15px solid yellow;
+		border-radius: 50%;
+		width: 150px;
+		height: 150px;
+	}
+	#circle2_orange{
+		border: 15px solid orange;
+		border-radius: 50%;
+		width: 150px;
+		height: 150px;
+	}
+	#circle2_red{
+		border: 15px solid red;
+		border-radius: 50%;
+		width: 150px;
+		height: 150px;
+	}
+	.circle2-value { position:absolute; top:40%; left:0; width:100%;  font-size:50px;  color:lightblue; }
+	.circle2-unit { position:absolute; top:65%; left:0; width:100%;  font-size:15px;  color:lightblue; }
+	
+	.loader {
+		border: 10px solid white;
+		border-top: 10px solid green;
+		border-radius: 50%;
+		width: 60px;
+		height: 60px;
+		animation: spin 2s linear infinite;
+	}
+
+	@keyframes spin {
+		0% { transform: rotate(0deg); }
+		100% { transform: rotate(360deg); }
+	}
+	
+	input[type=submit] {
+		background-color: #4CAF50; /* Green */
+		border: none;
+		color: white;
+		padding: 2px 2px;
+		border-radius: 8px;
+		opacity: 1;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 24px;
+	}
+
+	.bar1 {
+		position: absolute;
+		font-size: 16px;
+		margin: 0px 0px 0px 0px;
+		left: 80px;
+		width: calc(400px * {{data[0]['energy_p1']}} );
+		height: 6%;
+		top: 710px;
+
+		background-color: lightgreen;
+	}
+
+	.bar2 {
+		position: absolute;
+		font-size: 16px;
+		margin: 0px 0px 0px 0px;
+		left: calc(400px * {{data[0]['energy_p1']}} + 80px);
+		width: calc(400px * {{data[0]['energy_p2']}});
+		height: 6%;
+		top: 710px;
+
+		background-color: lightblue;
+	}
+
+	.bar3 {
+		position: absolute;
+		font-size: 16px;
+		margin: 0px 0px 0px 0px;
+		left: calc(400px * {{data[0]['energy_p1']}} + 400px * {{data[0]['energy_p2']}} + 80px);
+		width: calc(400px * {{data[0]['energy_p3']}} );
+		height: 6%;
+		top: 710px;
+
+		background-color: darkblue;
+	}
+
+	.sc-gauge  { width:400px; height:400px; margin:40px 80px auto; }
+	.sc-background { position:relative; height:200px; margin-bottom:10px; background-color:#fff; border-radius:250px 250px 0 0; overflow:hidden; text-align:center; }
+	.sc-mask { position:absolute; top:20px; right:20px; left:20px; height:180px; background-color:black; border-radius:250px 250px 0 0 }
+	.sc-percentage { position:absolute; top:200px; left:-200%; width:400%; height:400%; margin-left:200px; background-color:green; }
+	.sc-percentage { transform:rotate(calc(180deg*({{data[0]['energy']}}/16))); transform-origin:top center; }
+	.sci-percentage { position:absolute; top:200px; left:-200%; width:400%; height:400%; margin-left:170px; background-color:grey; }
+	.sci-percentage { transform:rotate(calc(180deg*(4/16))); transform-origin:top center; }
+	.sc-unit { position:absolute; top:50%; left:0; margin-left:0px; width:100%; font-size:32px; }
+	.sc-value { position:absolute; top:45%; left:0; width:100%;  font-size:80px;  color:lightblue; }
+	.sc-marker { z-index: 3; background-color:black; position: absolute; width: 3px; height: 25px;  left: 200px; transform:rotate(0deg); }
+	
+	.sc2-gauge  { width:300px; height:250px; margin:40px 130px auto; }
+	.sc2-background { position:relative; height:150px; margin-bottom:10px; background-color:#fff; border-radius:250px 250px 0 0; overflow:hidden; text-align:center; }
+	.sc2-mask { position:absolute; top:20px; right:20px; left:20px; height:180px; background-color:black; border-radius:250px 250px 0 0 }
+	.sc2-percentage { position:absolute; top:200px; left:-200%; width:400%; height:400%; margin-left:200px; background-color:green; }
+	.sc2-percentage { transform:rotate(calc(180deg*({{data[0]['sh_energy']}}/6))); transform-origin:top center; }
+	.sc2-unit { float:center; font-size:40px;}
+	.sc2-value { position:absolute; top:50%; left:0; width:100%;  font-size:70px;  color:lightblue; }
+	.sc2-marker { z-index: 3; background-color:black; position: absolute; width: 3px; height: 20px;  left: 150px; transform:rotate(0deg); }
+
+	.sc3-gauge  { width:300px; height:250px; margin:40px 130px auto; }
+	.sc3-background { position:relative; height:150px; margin-bottom:10px; background-color:#fff; border-radius:250px 250px 0 0; overflow:hidden; text-align:center; }
+	.sc3-mask { position:absolute; top:20px; right:20px; left:20px; height:180px; background-color:black; border-radius:250px 250px 0 0 }
+	.sc3-percentage { position:absolute; top:200px; left:-200%; width:400%; height:400%; margin-left:200px; background-color:rgb(179, 182, 18); }
+	.sc3-percentage { transform:rotate(calc(180deg*({{data[0]['solar_energy']}}/16))); transform-origin:top center; }
+	.sc3-unit { float:center; font-size:32px;}
+	.sc3-value { position:absolute; top:40%; left:0; width:100%;  font-size:70px;  color:lightblue; }
+	.sc3-marker { z-index: 3; background-color:black; position: absolute; width: 3px; height: 20px;  left: 150px; transform:rotate(0deg); }
+	
+	</style>
+</head>
+
+<body style="background-color:black;color:white">		
+	<!-- <div class="bar1">
+		<center>House</center>
+	</div>
+	<div class="bar2">
+		<center>Heat</center>
+  </div>
+	<div class="bar3">
+		<center>Water</center>
+  </div> -->
+	{% if data[0]['alarm_set'] != 1 %}
+		<h1 class="time">{{data[0]['time']}}</h1>
+	{% else %}		
+		<h1 class="time" style="color:red">{{data[0]['time']}}         {{data[0]['alarm']}}</h1>
+	{% endif %}
+	
+	{% if data[0]['out_tempf'] >= 10 and (data[0]['status'] != "Parked" or data[0]['status2'] != "Parked") and data[0]['idev_time_alert'] != 1 %}
+		{% if data[0]['status'] == "Error" or data[0]['status'] == "Fatal Error"%}
+			<h2 class="mower" style="color:red"><center>{{data[0]['name']}} ({{data[0]['mbat']}}%) - {data[0]['merror']}}</center></h2>
+		{% elif data[0]['status'] == "Disconnected" or data[0]['status'] == "Disabled"%}
+			<h2 class="mower" style="color:red"><center>{{data[0]['name']}} ({{data[0]['mbat']}}%) - {{data[0]['status']}}<br>{{data[0]['merror']}}</center></h2>
+		{% else %}		
+			<h2 class="mower" style="color:lightgreen"><center>{{data[0]['name']}} ({{data[0]['mbat']}}%) - {{data[0]['status']}}</center></h2>
+		{% endif %}
+	
+		{% if data[0]['status2'] == "Error" or data[0]['status2'] == "Fatal Error" %}	
+			<h2 class="mower2" style="color:red"><center>{{data[0]['name2']}} ({{data[0]['m2bat']}}%) - {{data[0]['m2error']}}</center></h2>
+		{% elif data[0]['status2'] == "Disconnected" or data[0]['status2'] == "Disabled" %}	
+			<h2 class="mower2" style="color:red"><center>{{data[0]['name2']}} ({{data[0]['m2bat']}}%) - {{data[0]['status2']}}<br>{{data[0]['m2error']}}</center></h2>
+		{% else %}	
+			<h2 class="mower2" style="color:lightgreen"><center>{{data[0]['name2']}} ({{data[0]['m2bat']}}%) - {{data[0]['status2']}}</center></h2>
+		{% endif %}
+	{% endif %}
+	{% if data[0]['idev_time_alert'] == 1 %}
+		<h2 class="mower" style="color:red"><center>Husqvarna missed since: {{data[0]['idev_time']}}</center></h2>
+	{% endif %}
+
+	<h2 class="chargeamp" style="color:white"><center>{{data[0]['ca_status']}}: {{data[0]['ca_consumption']}}/{{data[0]['Month_Consumption']}}({{data[0]['Month_Cost']}})kWh</center></h2>
+
+	<table class="energy">
+		<tr>
+		<td>
+			<div class="sc-gauge">
+				<div class="sc-background">
+					<div class="sc-marker"></div>
+					<div class="sc-percentage"></div>
+					<div class="sc-mask"></div>
+					{% if data[0]['energyf'] < 0  %}
+						<span class="sc-value" style="color:green">{{data[0]['energy']}}</span>
+					{% else %}
+						<span class="sc-value">{{data[0]['energy']}}</span>
+					{% endif %}
+				</div>
+				{% if data[0]['energy_time_alert'] != 1 %}
+						<span class="sc-unit"><center><br>kW Home<br>{{data[0]['energy_day']}} /{{data[0]['energy_month']}} /{{data[0]['energy_year']}} kwh</center>
+							{% if data[0]['solar_monthly_earnedf'] > 0 %}
+									<span style="color:white"><center>{{data[0]['energy_day_net']}} / {{data[0]['solar_monthly_payed_net']}}+{{data[0]['solar_monthly_earned']}} SEK</center></span>
+								{% else %}
+									<span style="color:rgb(5, 156, 26)"><center>{{data[0]['solar_monthly_payed_net']}}+{{data[0]['solar_monthly_earned']}} SEK</center></span>
+								{% endif %}
+							</span>
+						<!-- <span class="sc-unit"><center>{{data[0]['energyH']}}<br>kW Home<br>{{data[0]['energy_day']}} /{{data[0]['energy_month']}} /{{data[0]['energy_year']}} kwh</center></span> -->					
+				{% else %}
+						<span class="sc-unit" style="color:red"><h2><center>Energy missed since: {{data[0]['energy_time']}}</center></h2></span>
+				{% endif %}
+				</div>
+		</td>
+		</tr>
+		</table>
+re
+	<table class="solar">
+		{% if data[0]['solar_status'] == "On-grid" %}
+		<tr>
+		<td>
+			<div class="sc3-gauge">
+				<div class="sc3-background">
+					<div class="sc3-marker"></div>
+					<div class="sc3-percentage"></div>
+					<div class="sc3-mask"></div>
+					<span class="sc3-value">{{data[0]['solar_energy']}}</span>
+				</div>
+					<span class="sc3-unit"><center>kW Solar<br>{{data[0]['solar_daily']}} / {{data[0]['solar_monthly']}} /{{data[0]['solar_yearly']}}</span>
+			</div>
+		</td>
+		</tr>
+		{% endif %}
+		{% if data[0]['solar_time_alert'] == 1 %}
+		<tr>
+			<td style="color:red"><h2><center>Solar Inverter missed since: {{data[0]['solar_time']}}</center></h2></td>
+		</td>
+		{% endif %}		
+	</table>	
+	
+
+	<table class="energy3">
+		{% if data[0]['t_time_alert'] != 1 %}
+		<tr>
+		<td width="25%" class="topmarg"><h2><center>
+				{% if data[0]['t_pricef'] > 6 %}
+					<div id="circle2_red"></div>
+				{% elif data[0]['t_pricef'] > 4 %}
+					<div id="circle2_orange"></div>
+				{% elif data[0]['t_pricef'] > 2 %}
+					<div id="circle2_yellow"></div>
+				{% else %}
+					<div id="circle2_green"></div>
+				{% endif %}
+				<span class="circle2-value"><center>{{data[0]['t_price']}}</center></span>
+				<span class="circle2-unit"><center>SEK/kWh</center></span>
+			</center></h2></td>
+		</tr>
+		{% else %}
+		<tr>
+			<td style="color:red"><h2><center>Tibber missed since: {{data[0]['t_temp_time']}}</center></h2></td>
+		</tr>
+		{% endif %}		
+	</table>	
+	
+	{% if data[0]['sh_energyf'] > 0.1 %}
+	<table class="energy2">
+		<tr>
+		<td>
+			<div class="sc2-gauge">
+				<div class="sc2-background">
+					<div class="sc2-marker"></div>
+					<div class="sc2-percentage"></div>
+					<div class="sc2-mask"></div>
+					<span class="sc2-value">{{data[0]['sh_energy']}}</span>
+				</div>
+				<span class="sc2-unit"><center>kW Home<br>{{data[0]['castle_day']}} /{{data[0]['castle_month']}} kwh</center></span>
+			</div>
+		</td>
+		</tr>
+	</table>
+	{% endif %}
+	
+	<table class="temp">
+		<tr>
+			<td style="color:white"><h2><center>Indoors</center></h2></td>
+			<td style="color:white"><h2><center>Outdoors</center></h2></td>
+			<td style="color:white"><h2><center>Pool</center></h2></td>
+			{% if data[0]['temp_saunaf'] > 35  or data[0]['sauna'] == 1 or data[0]['sauna_cmd'] != ""  %}
+				<td style="color:white"><h2><center>Sauna</center></h2></td>
+			{% endif %}
+		</tr>	
+		<tr>
+			<td width="25%" style="color:lightblue;font-size:80px;"><center>{{data[0]['in_temp']}}<span>&#176;</span></center></td>
+			<td width="25%" style="color:yellow;font-size:80px;"><center>{{data[0]['out_temp']}}<span>&#176;</span></center></td>
+			{% if data[0]['temp_poolf'] > 25 %}
+				<td width="25%" style="color:lightgreen;font-size:80px;"><center>{{data[0]['temp_pool']}}<span>&#176;</span></center></td>
+			{% else %}
+				<td width="25%" style="color:lightblue;font-size:80px;"><center>{{data[0]['temp_pool']}}<span>&#176;</span></center></td>
+			{% endif %}
+
+			{% if data[0]['temp_saunaf'] > 80 %}
+				<td width="25%" style="color:red;font-size:80px;"><center>{{data[0]['temp_sauna']}}<span>&#176;</span></center></td>
+			{% elif data[0]['temp_saunaf'] > 50 %}
+				<td width="25%" style="color:yellow;font-size:80px;"><center>{{data[0]['temp_sauna']}}<span>&#176;</span></center></td>				
+			{% elif data[0]['temp_saunaf'] > 35 or data[0]['sauna'] == 1 or data[0]['sauna_cmd'] != "" %}
+				<td width="25%" style="color:lightblue;font-size:80px;"><center>{{data[0]['temp_sauna']}}<span>&#176;</span></center></td>
+			{% endif %}
+		</tr>	
+		<tr>
+			<td width="25%" style="color:lightblue;font-size:80px;"><center></center></td>
+			{% if data[0]['w_iwind'] >= 8 %}
+				<td width="30%" style="color:white;font-size:30px;"><center>{{data[0]['w_beaufortDesc']}}</center></td>
+			{% endif %}
+
+			<td style="color:white"><h2><center></center></h2></td>
+			<td style="color:white"><h2><center></center></h2></td>
+			{% if data[0]['sauna'] == 0 and data[0]['sauna_cmd'] != "" %}
+				<td style="color:yellow"><h2><center>Turning on Sauna...</center></h2></td>
+			{% elif data[0]['sauna'] == 1 %}
+			<td style="color:yellow"><h2><center>Sauna is Running</center></h2></td>
+			{% endif %}
+		</tr>
+		<tr>
+			{% if data[0]['w_iwind'] >= 5 %}
+				<td width="25%" style="color:lightblue;font-size:80px;"><center></center></td>
+				<td width="25%" style="color:white;font-size:30px;"><center>{{data[0]['w_wind']}}m/s ({{data[0]['w_windmax']}})</center></td>
+			{% endif %}
+		</tr>
+		<tr>
+			{% if data[0]['w_iwind'] >= 8 %}
+				<td width="25%" style="color:lightblue;font-size:80px;"><center></center></td>
+				<td width="25%" style="color:#2E86C1;font-size:30px;"><center>{{data[0]['w_forecastdesc']}} ({{data[0]['w_pressure']}}mb)</center></td>
+			{% endif %}
+		</tr>
+	</table>
+	
+	<table class="pool">
+		{% if (data[0]['pool_pump'] == true or data[0]['temp_saunaf'] > 35 or data[0]['pool_lvl'] != 0) and data[0]['temp_poolf'] > 10 and data[0]['pool_time_alert'] != 1 %}
+		<tr><td colspan="4"><h2><center>Pool Health</center></h2></td></tr>
+		<tr>
+			<td colspan="7"><h3 style="color:lightgreen"><center>{{data[0]['level_err']}}</center></h3></td>
+		</tr>
+		<tr>
+		</tr>	
+		<tr>
+		</tr>	
+		<tr>			
+			<td width="25%" class="topmarg"><h2><center>
+				{% if data[0]['pool_pump'] == true %}
+					<div class="loader"></div>
+				{% else %}
+					<div id="circle"></div>
+				{% endif %}
+			</center></h2></td>
+			<td width="25%" class="topmarg"><h2><center>
+				{% if data[0]['pool_cl'] == true and data[0]['pool_pump'] == true %}
+					<div class="loader"></div>
+				{% elif data[0]['pool_cl'] == true %}
+					<div id="circle_yellow"></div>
+				{% else %}
+					<div id="circle"></div>
+				{% endif %}
+			</center></h2></td>
+			<td width="25%" class="topmarg"><h2><center>
+				{% if data[0]['pool_lvl'] == 2 %}
+					<div class="loader"></div>
+				{% elif data[0]['pool_lvl'] == 1 %}
+					<div id="circle_yellow"></div>
+				{% elif data[0]['pool_lvl'] == 3 %}
+					<div id="circle_red"></div>
+				{% else %}
+					<div id="circle_green"></div>
+				{% endif %}
+			</center></h2></td>
+
+			<!--<td width="25%" style="color:lightblue"><h3><center><br><br>OFF</center></h3></td>-->
+			<td width="25%">
+			{% if data[0]['ph_err'] > 0 %}
+				 <h1 style="color:OrangeRed"><center>{{data[0]['ph']}}pH</center></h1>
+			{% else %}
+				<h1 style="color:lightblue"><center>{{data[0]['ph']}}pH</center></h1>
+			{% endif %}
+			{% if data[0]['orpval'] < 500 %}
+				<h1 style="color:OrangeRed"><center>{{data[0]['orp']}}mV</center></h1>
+			{% elif data[0]['orpval'] < 600  %}
+				<h1 style="color:yellow"><center>{{data[0]['orp']}}mV</center></h1>
+			{% else %}
+				<h1 style="color:lightblue"><center>{{data[0]['orp']}}mV</center></h1>
+			{% endif %}	
+			</td>
+			
+		</tr>	
+		<tr>
+			<td style="color:white"><h3><center>Circulation<br>{{data[0]['pool_pump_kw']}} kW</center></h3></td>
+			<td style="color:white"><h3><center>Clorination<br>{{data[0]['pool_cl_kw']}} kW</center></h3></td>
+			{% if data[0]['pool_lvl'] == 2 %}
+				<td style="color:ligthblue"><h3><center>Filling</center></h3></td>
+			{% elif data[0]['pool_lvl'] == 1 %}
+				<td style="color:yellow"><h3><center>Low Level</center></h3></td>
+			{% elif data[0]['pool_lvl'] == 3 %}
+				<td style="color:red"><h3><center>Fill Error</center></h3></td>			
+			{% else %}
+				<td style="color:white"><h3><center>Pool Level</center></h3></td>
+			{% endif %}
+			{% if data[0]['ph_err'] > 0 %}
+				<td style="color:white"><h3><center>Pool Healt</center></h3></td>
+			{% else %}
+				<td style="color:white"><h3><center>Pool Healt</center></h3></td>
+			{% endif %}
+		</tr>	
+		{% if data[0]['pool_time_alert'] == 1 %}
+		<tr>
+			<td style="color:red"><h2><center>Pool missed since: {{data[0]['pool_time']}}</center></h2></td>
+		</td>
+		{% endif %}		
+		{% endif %}
+	</table>
+
+	<table class="heatpump">
+		{% if data[0]['hpalert'] != "" or data[0]['hp_status'] != "No demand" and data[0]['hp_time_alert'] != 1 %}
+		<tr><td colspan="3"><h2><center>Heat pump</center></h2></td></tr>
+		<tr><td colspan="3"><h2 style="color:red">{{data[0]['alert']}}</h2></td></tr>
+		<tr><td colspan="3"><h2 style="color:red">{{data[0]['hpalert']}}</h2></td></tr>
+		<tr>
+			{% if data[0]['hp_status'] == "Heat" or data[0]['hp_status'] == "Hot water" %}
+				<td width="25%"><h2><center><div class="loader"></div></center></h2></td>
+			{% else %}
+				<td width="25%"><h2><center><div id="circle"></div></center></h2></td>
+			{% endif %}			
+			<td width="25%"><h2 style="color:lightblue" valign="center" align="center"><big>{{data[0]['delta2']}}<span>&#176;</span><br>{{data[0]['delta1']}}<span>&#176;</span></big></h2></td>
+			<td width="25%"><h2 style="color:lightblue" valign="center" align="center"><big>{{data[0]['hp_water']}}<span>&#176;</span><br>{{data[0]['hp_return']}} /{{data[0]['hp_supply_req']}}<span>&#176;</span></big></h2></td>
+		</tr>
+		<tr>
+			<td style="color:lightgreen"><h3><center>{{data[0]['hp_status']}} {{data[0]['hp_comp_percent']}}%<br>{{data[0]['hp_energy']}}kW<br>Set: {{data[0]['hp_temp_set']}}({{data[0]['hp_adj']}})</center></h3></td>
+			<td><h3><center>Delta Brine/Heat</center></h3></td>
+			<td><h3><center>Water<br>Return/Request</center></h3></td>
+		</tr>
+		{% endif %}
+
+		{% if data[0]['hp_time_alert'] == 1 %}
+		<tr>
+			<td style="color:red"><h2><center>Heatpump missed since: {{data[0]['hp_time']}}</center></h2></td>
+		</td>
+		{% endif %}
+		{% if data[0]['energy2_time_alert'] == 1 %}
+		<tr>
+			<td style="color:red"><h2><center>HP Energy missed since: {{data[0]['energy2_time']}}</center></h2></td>
+		</td>
+		{% endif %}
+	</table>
+	
+	{% if data[0]['3d_state'] == "Printing" or data[0]['3d_state'] == "Cancelling" or data[0]['3d_state'] == "Error" %}
+	<table class="printer">
+		<tr><td colspan="3" style="color:white" ><h2><center>3D printing</center></h2></td></tr>
+		<tr>
+			<td width="25%"><h2 style="color:lightgreen"><center>{{data[0]['3d_state']}}</center></h2></td>
+			<td width="50%" colspan="2"><h2 style="color:#2E86C1">{{data[0]['3d_file']}}</h2></td>
+		</tr>
+		<tr>
+			<td><h2 style="color:lightgreen"><center>{{data[0]['3d_timedone']}}</center></h2></td>
+			<td width="50%" colspan="2"><h3>Progress: {{data[0]['3d_percent']}}% Left: {{data[0]['3d_timeleft']}}</h3></td>
+		</tr>
+	</table>
+	{% endif %}
+	
+	<table class="alarms"> 
+		<tr><td colspan="3"><h2><center></center></h2></td></tr>
+		<tr>
+			{% if data[0]['moisture'] > 800 and data[0]['moisture'] < 900 %}
+				<td style="color:Red"><h2><center>Pool plant is dry ({{data[0]['moisture']}})</center></h></td>
+			{% endif %}
+		</tr>	
+		{% if data[0]['wm_error'] !="" %}
+		<tr>
+			<td style="color:red"><h2><center>{{data[0]['wm_error']}}</center></h2></td>
+		</td>
+		{% endif %}
+
+		{% if data[0]['w_time_alert'] == 1 %}
+		<tr>
+			<td style="color:red"><h2><center>Weather missed since: {{data[0]['w_time']}}</center></h2></td>
+		</td>
+		{% endif %}
+
+	
+
+	</table>
+	
+	<table class="summer"> 
+		{% if data[0]['sh_show'] == 1 %}
+		<tr><td colspan="3"><h2><center>Slottet</center></h2></td></tr>
+		<tr><td colspan="3"><h2><center></center></h2></td></tr>
+		<tr>
+			<td width="25%" style="color:lightblue"><center><h1>{{data[0]['sh_temp_in']}}<span>&#176;</span></h1><h2>{{data[0]['sh_humidity']}}%</h2></center></td>
+			<td width="25%" style="color:yellow"><center><h1>{{data[0]['sh_temp_out']}}<span>&#176;</span></h1><h2 style="color:lightblue">{{data[0]['sh_temp_unit']}}<span>&#176;</span></h2></center></td>
+			
+			{% if data[0]['sh_water'] == 1 %}
+				<td width="25%" style="color:lightblue"><h1><center>{{data[0]['sh_temp_water']}}<span>&#176;</span></h1></center><h2 style="color:red"><center>Open</center></h2></td>
+			{% else %}
+				<td width="25%" style="color:lightblue"><h1><center>{{data[0]['sh_temp_water']}}<span>&#176;</span></h1></center><h2 style="color:lightblue"><center>Closed</center></h2></td>
+			{% endif %}
+						
+		</tr>	
+		<tr>
+			<td style="color:white"><h3><center>Indoor</center></h3></td>
+			<td style="color:white"><h3><center>Outdoor/Central</center></h3></td>
+			<td style="color:white"><h3><center>Water Temp/Valve</center></h3></td>
+		</tr>	
+		{% endif %}
+		{% if data[0]['sh_time_alert'] == 1 %}
+		<tr>
+			<td style="color:red"><h2><center>Slottet missed since: {{data[0]['sh_time']}}</center></h2></td>
+		</td>
+		{% endif %}		
+	</table>
+	
+	<table class="news"> 
+		<tr><td><h2><center>Breaking News</center></h2></td></tr>
+		<tr>
+			<td><h2 style="color:lightblue">-{{news['entries'][0]['title']}}</h2></td>
+		</tr>
+		<tr>
+			<td><h2 style="color:lightblue">-{{news['entries'][1]['title']}}</h2></td>
+		</tr>
+		<tr>
+			<td><h2 style="color:lightblue">-{{news['entries'][2]['title']}}</h2></td>
+		</tr>	
+	</table>
+	
+	<table class="weather"> 
+		{{data[0]['debug']}}
+		
+		{% if weather %}
+		{% if weather[0]['cnt'] >= 2 %}
+
+		<tr>
+			<td width="20%"><h2>{{weather[0]['day']}}</h2></td>
+			<td width="20%"><h2>{{weather[1]['day']}}</h2></td>
+			<td width="20%"><h2>{{weather[2]['day']}}</h2></td>
+		</tr>
+		<tr>
+			<td><img src={{weather[0]['icon']}} style="height:200%"></td>
+			<td><img src={{weather[1]['icon']}} style="height:200%"></td>
+			<td><img src={{weather[2]['icon']}} style="height:200%"></td>
+		</tr>
+		<tr>
+			<td><h2>{{weather[0]['temp_min']}}<span>&#176;</span> / {{weather[0]['temp_max']}}<span>&#176;</span></h2></td>
+			<td><h2>{{weather[1]['temp_min']}}<span>&#176;</span> / {{weather[1]['temp_max']}}<span>&#176;</span></h2></td>
+			<td><h2>{{weather[2]['temp_min']}}<span>&#176;</span> / {{weather[2]['temp_max']}}<span>&#176;</span></h2></td>
+		</tr>
+		<tr>
+			<td><h2 style="color:lightblue">{{weather[0]['rain']}}mm</h2></td>    
+			<td><h2 style="color:lightblue">{{weather[1]['rain']}}mm</h2></td>    
+			<td><h2 style="color:lightblue">{{weather[2]['rain']}}mm</h2></td>    
+		</tr>
+		<tr>
+			<td><h2 style="color:lightblue">{{weather[0]['wind']}}m/s</h2></td>
+			<td><h2 style="color:lightblue">{{weather[1]['wind']}}m/s</h2></td>
+			<td><h2 style="color:lightblue">{{weather[2]['wind']}}m/s</h2></td>
+		</tr>
+		<tr>
+			<td><h2 style="color:lightblue">{{weather[0]['desc']}}</h2></td>
+			<td><h2 style="color:lightblue">{{weather[1]['desc']}}</h2></td>
+			<td><h2 style="color:lightblue">{{weather[2]['desc']}}</h2></td>
+		</tr>	
+		{% endif %}
+		{% endif %}
+	</table>	
+
+</body>
+</html>
